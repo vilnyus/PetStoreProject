@@ -7,16 +7,20 @@ public class BrowserFactory {
     static WebDriver driver;
 
     public static WebDriver StartBrowser(String browserName, String Url){
+        String path = System.getProperty("user.dir");
+        System.out.println(path);
+
         if(browserName.equals("chrome")){
-            System.setProperty("webdriver.chrome.driver", "D:\\Selenium_Projects\\PetStoreProject\\src\\test\\resources\\drivers\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", path + "\\src\\test\\resources\\drivers\\chromedriver.exe");
             driver = new ChromeDriver();
         }
         else if (browserName.equals("firefox")){
-            System.setProperty("webdriver.gecko.driver", "D:\\Selenium_Projects\\PetStoreProject\\src\\test\\resources\\drivers\\geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", path + "\\src\\test\\resources\\drivers\\geckodriver.exe");
             driver = new FirefoxDriver();
         }
         else if (browserName.equals("edge")){
-            System.setProperty("webdriver.edge.driver", "D:\\Selenium_Projects\\PetStoreProject\\src\\test\\resources\\drivers\\msedgedriver.exe");
+            System.setProperty("webdriver.edge.driver", path + "\\src\\test\\resources\\drivers\\msedgedriver.exe");
+
             driver = new EdgeDriver();
         }
 
